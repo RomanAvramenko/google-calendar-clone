@@ -1,21 +1,25 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Button } from "../UI/Button/Button";
+import { Dropdown } from "../UI/Dropdown/Dropdown";
+import "./Header.scss";
 
 export const Header = () => {
-  let navigate = useNavigate();
-
-  const handleChange = (value) => {
-    console.log(value);
-    navigate(`/${value}`);
-  };
   return (
-    <div>
-      <select name="" id="" onChange={(e) => handleChange(e.target.value)}>
-        <option value="day">Day</option>
-        <option value="week">Week</option>
-        <option value="month">Month</option>
-        <option value="year">Year</option>
-      </select>
+    <div className="header">
+      <div className="header_logo">
+        <img
+          className="header_logo_img"
+          src="https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_23_2x.png"
+          alt=""
+        />
+        <span className="header_logo_title">
+          <h2>Calendar</h2>
+        </span>
+      </div>
+      <div className="header_nav">
+        <Button>Today</Button>
+        <Dropdown />
+      </div>
     </div>
   );
 };

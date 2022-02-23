@@ -4,6 +4,7 @@ import { DayPage } from "../../pages/DayPage";
 import { MonthPage } from "../../pages/MonthPage";
 import { WeekPage } from "../../pages/WeekPage";
 import { YearPage } from "../../pages/YearPage";
+import { SchedulePage } from "../../pages/SchedulePage";
 import "./App.scss";
 
 export const App = () => {
@@ -16,6 +17,7 @@ export const App = () => {
           <Route path="/week" element={<WeekPage />} />
           <Route path="/month" element={<MonthPage />} />
           <Route path="/year" element={<YearPage />} />
+          <Route path="/schedule" element={<SchedulePage />} />
         </Routes>
       </BrowserRouter>
     </div>

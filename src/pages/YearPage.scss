@@ -1,0 +1,13 @@
+.yearPage {
+  transform: rotate(90deg);
+  animation: 1s linear 1s infinite alternate slidein;
+}
+
+@keyframes slidein {
+  from {
+    transform: rotate(140deg);
+  }
+  to {
+    transform: rotate(40deg);
+  }
+}

@@ -1,0 +1,38 @@
+.header {
+  position: relative;
+  height: 3.5em;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  &_logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 2em;
+
+    &_img {
+      width: 3em;
+      height: 3em;
+      padding-right: 2px;
+    }
+    &_title {
+      padding-left: 2px;
+      color: #4B4F51;
+    }
+  }
+  &_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+.header:after {
+  content: "";
+  position: absolute;
+  background-color: #dadce0;
+  height: 1px;
+  width: 100%;
+  left: 0;
+  top: 4.5em;
+}

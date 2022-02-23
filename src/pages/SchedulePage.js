@@ -1,12 +1,11 @@
 import React from "react";
 import { Header } from "../components/Header/Header";
-import './YearPage.scss'
 
-export const YearPage = () => {
+export const SchedulePage = () => {
   return (
     <div>
       <Header />
-      <h1 className="yearPage">ЧЛЕН</h1>
+      SchedulePage
     </div>
   );
 };
