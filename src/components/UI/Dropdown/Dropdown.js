@@ -56,8 +56,8 @@ export const Dropdown = () => {
   return (
     <div className="dropdown">
       <Button onClick={handleMenu}>
-        <span>{selected || "Day"}</span>
-        <span className="dropdown_btn_icon"></span>
+        <span >{selected || "Day"}</span>
+        <span className="dropdown_icon"></span>
       </Button>
       <ul className={isOpen ? "dropdown_menu" : "dropdown_hide"}>
         {dropDownLinks.map((i) => {

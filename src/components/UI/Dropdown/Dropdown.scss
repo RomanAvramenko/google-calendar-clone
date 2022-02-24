@@ -34,4 +34,14 @@
   &_hide {
     display: none;
   }
+  &_icon {
+    top: 30px;
+    right: 15px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #555;
+  }
 }
