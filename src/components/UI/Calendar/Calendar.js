@@ -1,35 +1,31 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectDay } from "../../../redux/actions/calendar";
 
 export const Calendar = ({
-  selectedDay,
-  todayTimestamp,
   monthDetails,
-  selectDay,
   selectMonth,
 }) => {
+  const dispatch = useDispatch();
+  const {selectedDay, todayTimestamp} = useSelector(state=> state.date)
+
   /*TODO*/
   /*Доробити у функції можливість при зміні дати, 
   що не стосується теперішнього місяця підсвічувати дату яку було обрано*/
   const onDateClick = (day) => {
-    //console.log(new Date(day.timestamp).getDate());
-    //console.log(day);
     selectMonth(day.month);
-    return selectDay(day.timestamp);
+    return dispatch(selectDay(day.timestamp));
   };
-
-  const isCurrentDay = (day) => day.timestamp === todayTimestamp;
-
-  const isSelectedDay = (day) => day.timestamp === selectedDay;
 
   let days = monthDetails.map((day, index) => {
     let highlighter = () => {
       if (day.month !== 0) {
         return " disabled";
       }
-      if (isCurrentDay(day)) {
+      if (day.timestamp === todayTimestamp) {
         return " highlight";
       }
-      if (isSelectedDay(day)) {
+      if (day.timestamp === selectedDay) {
         return " highlight-blue";
       }
       return "";

@@ -179,11 +179,15 @@
 }
 
 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 24px;
   width: 24px;
-  padding: 2px;
   color: #5f6368;
   cursor: pointer;
+  border: none;
+  background-color: inherit;
   &:hover {
     background-color: #f0f0f0;
     transition: background 0.3s;

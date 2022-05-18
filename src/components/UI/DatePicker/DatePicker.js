@@ -3,13 +3,9 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { Calendar } from "../Calendar/Calendar";
+import { useDispatch, useSelector } from "react-redux";
 import "./DatePicker.scss";
 
-let oneDay = 60 * 60 * 24 * 1000;
-let todayTimestamp =
-  Date.now() -
-  (Date.now() % oneDay) +
-  new Date().getTimezoneOffset() * 1000 * 60;
 const daysMap = [
   "Monday",
   "Tuesday",
@@ -39,10 +35,12 @@ export const DatePicker = () => {
   let date = new Date();
 
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const [selectedDay, setSelectedDay] = useState(todayTimestamp);
   const [monthDetails, setMonthDetails] = useState([]);
   const [year, setYear] = useState(date.getFullYear());
   const [month, setMonth] = useState(date.getMonth());
+
+  const dispatch = useDispatch();
+  const {selectedDay} = useSelector(state=> state.date)
 
   const ref = useRef(null);
 
@@ -150,8 +148,6 @@ export const DatePicker = () => {
     setMonthDetails(getMonthDetails(currYear, currMonth));
   };
 
-  const selectDay = (timeStamp) => setSelectedDay(timeStamp);
-
   const selectMonth = (monthIndex) => handleMonth(monthIndex);
 
   return (
@@ -169,20 +165,17 @@ export const DatePicker = () => {
               <span className="mdpchc-year">
                 {getMonthStr(month)} {year}
               </span>
-              <div className="button" onClick={() => handleMonth(-1)}>
+              <button className="button" onClick={() => handleMonth(-1)}>
                 <ChevronLeftIcon />
-              </div>
-              <div className="button" onClick={() => handleMonth(1)}>
+              </button>
+              <button className="button" onClick={() => handleMonth(1)}>
                 <ChevronRightIcon />
-              </div>
+              </button>
             </div>
           </div>
           {monthDetails && (
             <Calendar
-              selectedDay={selectedDay}
-              todayTimestamp={todayTimestamp}
               monthDetails={monthDetails}
-              selectDay={selectDay}
               selectMonth={selectMonth}
             />
           )}
