@@ -6,7 +6,7 @@ export const YearPage = () => {
   return (
     <div>
       <Header />
-      <h1 className="yearPage">ЧЛЕН</h1>
+      <h1 className="yearPage">Year Page</h1>
     </div>
   );
 };
