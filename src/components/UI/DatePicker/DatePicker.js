@@ -2,34 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { Calendar } from "../Calendar/Calendar";
 import { useDispatch, useSelector } from "react-redux";
+import { Calendar } from "../Calendar/Calendar";
+import { daysMap, monthMap } from "../../../utils/calendarHelper";
+import { getDateStringFromTimestamp } from "../../../redux/actions/calendar";
 import "./DatePicker.scss";
-
-const daysMap = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-];
-
-const monthMap = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
 
 export const DatePicker = () => {
   let date = new Date();
@@ -40,7 +17,7 @@ export const DatePicker = () => {
   const [month, setMonth] = useState(date.getMonth());
 
   const dispatch = useDispatch();
-  const {selectedDay} = useSelector(state=> state.date)
+  const { selectedDay } = useSelector((state) => state.date);
 
   const ref = useRef(null);
 
@@ -119,13 +96,6 @@ export const DatePicker = () => {
   const getMonthStr = (month) =>
     monthMap[Math.max(Math.min(11, month), 0)] || "Month";
 
-  const getDateStringFromTimestamp = (timestamp) => {
-    let dateObject = new Date(timestamp);
-    let month = dateObject.getMonth();
-    let date = dateObject.getDate();
-    return `${monthMap[month]} ${date}, ${dateObject.getFullYear()}`;
-  };
-
   /* const handleYear = (offset) => {
     let year = year + offset;
     let month = month;
@@ -151,7 +121,7 @@ export const DatePicker = () => {
   const selectMonth = (monthIndex) => handleMonth(monthIndex);
 
   return (
-    <div>
+    <div className="datepicker">
       <div className="date-label" onClick={() => setShowDatePicker(true)}>
         <span className="mdp-date">
           {getDateStringFromTimestamp(selectedDay)}
@@ -174,10 +144,7 @@ export const DatePicker = () => {
             </div>
           </div>
           {monthDetails && (
-            <Calendar
-              monthDetails={monthDetails}
-              selectMonth={selectMonth}
-            />
+            <Calendar monthDetails={monthDetails} selectMonth={selectMonth} />
           )}
         </div>
       </div>

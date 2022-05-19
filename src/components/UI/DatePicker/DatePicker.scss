@@ -1,6 +1,11 @@
+.datepicker{
+  height: 100%;
+  display: flex;
+}
+
 .date-label {
   position: absolute;
-  top: 1em;
+  top: .8em;
   display: flex;
   color: #3c4043;
   font-family: Google Sans, Roboto, Arial, sans-serif;
@@ -26,10 +31,11 @@
 .date-picker {
   &_show {
     width: 244px;
+    height: 220px;
     padding: 0 14px 16px 19px;
     position: relative;
-    top: 7em;
-    left: -2em;
+    top: 1em;
+    left: -4em;
     box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%),
       0 4px 8px 3px rgb(60 64 67 / 15%);
     border-radius: 8px;
@@ -68,7 +74,7 @@
     opacity: 1;
   }
   100% {
-    transform: scale(0.7);
+    transform: scale(0.0);
     opacity: 0;
   }
 }
@@ -168,7 +174,7 @@
 .mdpchc-year {
   display: flex;
   flex-grow: 4;
-  justify-content: start;
+  justify-content: flex-start;
   padding-left: 5px;
   font-family: "Google Sans", Roboto, Arial, sans-serif;
   font-size: 14px;

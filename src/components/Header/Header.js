@@ -10,7 +10,7 @@ import "./Header.scss";
 
 export const Header = () => {
   const dispatch = useDispatch();
-  const { todayTimestamp } = useSelector((state) => state.date);
+  const { todayTimestamp, selectedDay } = useSelector((state) => state.date);
 
   return (
     <div className="header">
@@ -32,10 +32,10 @@ export const Header = () => {
             Today
           </Button>
           <div className="header_nav_controls_arrows">
-            <button>
+            <button onClick={() => dispatch(selectDay(selectedDay - 86400000))}>
               <ChevronLeftIcon />
             </button>
-            <button>
+            <button onClick={() => dispatch(selectDay(selectedDay + 86400000))}>
               <ChevronRightIcon />
             </button>
           </div>
