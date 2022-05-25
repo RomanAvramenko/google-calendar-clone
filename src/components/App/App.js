@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { DayPage } from "../../pages/DayPage";
 import { MonthPage } from "../../pages/MonthPage";

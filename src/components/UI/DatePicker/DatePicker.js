@@ -18,6 +18,7 @@ export const DatePicker = () => {
 
   const dispatch = useDispatch();
   const { selectedDay } = useSelector((state) => state.date);
+  const { currentPage } = useSelector((state) => state.header);
 
   const ref = useRef(null);
 
@@ -124,7 +125,7 @@ export const DatePicker = () => {
     <div className="datepicker">
       <div className="date-label" onClick={() => setShowDatePicker(true)}>
         <span className="mdp-date">
-          {getDateStringFromTimestamp(selectedDay)}
+          {getDateStringFromTimestamp(selectedDay, currentPage)}
         </span>
         <ArrowDropDownIcon />
       </div>
