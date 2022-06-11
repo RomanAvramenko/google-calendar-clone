@@ -1,13 +1,12 @@
 import React from "react";
+import { DayGrid } from "../components/DayGrid/DayGrid";
 import { Header } from "../components/Header/Header";
-import { ButtonCreate } from "../components/UI/ButtonCreate/ButtonCreate";
 
 export const DayPage = () => {
   return (
     <div>
       <Header />
-      <ButtonCreate />
-      DayPage
+      <DayGrid />
     </div>
   );
 };

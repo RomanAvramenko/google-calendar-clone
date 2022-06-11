@@ -8,6 +8,16 @@ export const daysMap = [
   "Sunday",
 ];
 
+export const daysShortcutMap = [
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+];
+
 export const monthMap = [
   "January",
   "February",

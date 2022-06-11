@@ -1,7 +1,9 @@
 .create {
+  position: relative;
   &_btn {
     position: absolute;
-    top: 5.5em;
+    top: .5em;
+    left: .5em;
     display: flex;
     justify-content: center;
     align-items: center;
