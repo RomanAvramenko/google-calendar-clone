@@ -13,6 +13,9 @@ export const DayGrid = () => {
 
   const currentDayPage = selectedDay === todayTimestamp ? "" : "weekday";
 
+  const dayStart = new Date(todayTimestamp).getTime();
+  const pointValue = ((Date.now() - dayStart) / 75000 + 150).toFixed();
+
   return (
     <div className="day-grid">
       <div className="day-grid_header">
@@ -29,9 +32,12 @@ export const DayGrid = () => {
         <div className="day-grid_table_lines">
           <div
             className="day-grid_table_indicatior"
-            style={{ top: "838px" }}
+            style={{ top: `${pointValue}px` }}
           ></div>
-          <div className="day-grid_table_point" style={{ top: "838px" }}></div>
+          <div
+            className="day-grid_table_point"
+            style={{ top: `${pointValue}px` }}
+          ></div>
         </div>
       </div>
     </div>
