@@ -1,4 +1,5 @@
 .day-grid {
+  position: relative;
   height: 100%;
   z-index: 1;
   &_header {
@@ -71,21 +72,38 @@
         justify-content: center;
       }
     }
-  }
-  &_table {
-    display: flex;
-    flex-direction: row;
-    flex: 1 1 auto;
-    align-items: flex-start;
+    &_gmt {
+      position: absolute;
+      color: #70757a;
+      font-size: 10px;
+      top: 84px;
+      z-index: 1;
+      height: 20px;
+      line-height: 20px;
+      margin-left: auto;
+      max-width: 80px;
+      min-width: 40px;
+      overflow: hidden;
+      padding-left: 2em;
+    }
     &::after {
       content: "";
       position: absolute;
       background-color: #dadce0;
       height: 1px;
       left: 0;
-      top: 150px;
+      top: 85px;
       width: 100%;
     }
+  }
+  &_table {
+    position: absolute;
+    height: 1152px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    align-items: flex-start;
     &_hours {
       min-width: 64px;
       overflow-y: hidden;

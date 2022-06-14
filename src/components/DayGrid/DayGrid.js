@@ -7,14 +7,23 @@ import "./DayGrid.scss";
 export const DayGrid = () => {
   const { selectedDay, todayTimestamp } = useSelector((state) => state.date);
 
+  const date = (stamp) => new Date(stamp);
+
   const getWeekday = () => {
-    return daysShortcutMap[new Date(selectedDay).getDay()];
+    return daysShortcutMap[date(selectedDay).getDay()];
   };
 
   const currentDayPage = selectedDay === todayTimestamp ? "" : "weekday";
 
-  const dayStart = new Date(todayTimestamp).getTime();
+  const dayStart = date(todayTimestamp).getTime();
   const pointValue = ((Date.now() - dayStart) / 75000 + 150).toFixed();
+
+  const timeZone = new Date()
+    .toString()
+    .split(" ")
+    .slice(5, -4)
+    .join("")
+    .slice(0, -2);
 
   return (
     <div className="day-grid">
@@ -26,6 +35,7 @@ export const DayGrid = () => {
             {new Date(selectedDay).getDate()}
           </div>
         </div>
+        <div className="day-grid_header_gmt">{timeZone}</div>
       </div>
       <div className="day-grid_table">
         <div className="day-grid_table_hours"></div>
